@@ -26,7 +26,7 @@ export function initForm() {
     status.textContent = 'Wird gesendet …';
     try {
       const body = new URLSearchParams(new FormData(form) as any).toString();
-      const res = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body });
+      const res = await fetch(import.meta.env.BASE_URL, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body });
       if (!res.ok) throw new Error(String(res.status));
       form.reset();
       status.classList.add('is-ok');

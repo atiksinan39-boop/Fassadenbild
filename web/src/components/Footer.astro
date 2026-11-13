@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 interface Props { standalone?: boolean }
 const { standalone = false } = Astro.props;
 ---
@@ -6,7 +7,7 @@ const { standalone = false } = Astro.props;
   <div class="wrap">
     <span>CoverCraft · Surface Design Engineering · Technologie &amp; Handwerk</span>
     <nav aria-label="Rechtliches">
-      <a href="/kontakt">Kontakt</a><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a>
+      <a href={u('/kontakt')}>Kontakt</a><a href={u('/impressum')}>Impressum</a><a href={u('/datenschutz')}>Datenschutz</a>
     </nav>
   </div>
 </footer>

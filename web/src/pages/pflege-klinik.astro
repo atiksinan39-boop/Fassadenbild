@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import Kontakt from '../components/Kontakt.astro';
@@ -35,7 +36,7 @@ const punkte = [
           <span class="rows__no mono">{String(i + 1).padStart(2, '0')}</span>
           <span class="rows__title">{b.ort}</span>
           <span class="rows__text">{b.text}</span>
-          <a class="rows__link" href={b.href}>{b.produkt}</a>
+          <a class="rows__link" href={u(b.href)}>{b.produkt}</a>
         </li>
       ))}
     </ul>
@@ -60,7 +61,7 @@ const punkte = [
         <h2 class="h-sec" id="pk-ref-title" data-reveal-lines>Betreutes Wohnen Köflach</h2>
         <p class="feature__num mono"><span class="num" data-count-view="1100">1.100</span> m²</p>
         <p class="lead" data-reveal-fade>Das größte dokumentierte Projekt. <span class="ph">[PROJEKTBESCHREIBUNG ERGÄNZEN]</span></p>
-        <p><a class="text-link text-link--quiet" href="/referenzen">Zur Referenzseite</a></p>
+        <p><a class="text-link text-link--quiet" href={u('/referenzen')}>Zur Referenzseite</a></p>
       </div>
       <div class="photo-ph" data-wipe><span class="label label--s">[PROJEKTFOTO]</span></div>
     </div>
@@ -70,7 +71,7 @@ const punkte = [
     <div class="wrap sec">
       <figure class="quote">
         <blockquote data-ink>Ein Ort ist Verortung und niemals neutral.</blockquote>
-        <figcaption class="label">Manifest HumanEco · Kapitel 04 · <a href="/humaneco#kapitel-fuersorge">Kunst jenseits Fürsorge</a></figcaption>
+        <figcaption class="label">Manifest HumanEco · Kapitel 04 · <a href={u('/humaneco#kapitel-fuersorge')}>Kunst jenseits Fürsorge</a></figcaption>
       </figure>
     </div>
   </section>

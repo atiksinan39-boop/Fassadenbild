@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 import { referenzen, formatM2 } from '../data/content';
 interface Props { full?: boolean }
 const { full = false } = Astro.props;
@@ -23,7 +24,7 @@ const { full = false } = Astro.props;
     ))}
   </ul>
   <p class="ph refs-note">{full ? '[WEITERE DOKUMENTIERTE PROJEKTE, PROJEKTFOTOS UND AKTUELLE REFERENZEN AB 2023 ERGÄNZEN]' : '[PROJEKTFOTOS UND ZWEI BIS DREI AKTUELLE REFERENZEN AB 2023 ERGÄNZEN]'}</p>
-  {!full && <p><a class="text-link text-link--quiet" href="/referenzen">Zur Referenzseite</a></p>}
+  {!full && <p><a class="text-link text-link--quiet" href={u('/referenzen')}>Zur Referenzseite</a></p>}
   <div class="ref-float" aria-hidden="true" data-ref-float>
     <span class="label label--s">[PROJEKTFOTO]</span>
     <span class="ref-float__name" data-ref-float-name></span>

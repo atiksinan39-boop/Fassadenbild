@@ -22,6 +22,9 @@ npm run build     # statische Ausgabe nach dist/
 ## Bewegung
 Nur ohne `prefers-reduced-motion`. Die System-Sequenz läuft ab 1024px Breite; darunter fügen sich die Schichten beim Scrollen einmal zusammen, die Daten stehen als Liste.
 
+## Vorschau auf GitHub Pages
+Jeder Push auf `main` baut die Seite über `.github/workflows/pages.yml` und stellt sie unter https://atiksinan39-boop.github.io/Fassadenbild/ bereit (Stand des Builds unter „Actions“). Interne Links laufen über `u()` aus `src/lib/url.ts`, damit sie unter dem Unterpfad stimmen. Das Formular sendet dort nicht – GitHub Pages kann keine Formulare empfangen; dafür ist Netlify vorgesehen.
+
 ## Veröffentlichung (Netlify)
 `netlify.toml` im Repository-Wurzelordner ist vorbereitet. In Netlify „Add new site → Import an existing project“ wählen, das GitHub-Repository verbinden, fertig. Das Formular „musterfaecher“ wird beim ersten Deploy automatisch als Netlify Form erkannt; die Benachrichtigungs-E-Mail wird unter Forms → Notifications eingetragen.
 

@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 import { Picture } from 'astro:assets';
 import care from '../assets/care.jpg';
 const facts = [
@@ -28,7 +29,7 @@ const more = [
       </ul>
       <p class="link-row">
         <a class="text-link" href="#kontakt">Projekt für eine Einrichtung anfragen</a>
-        <a class="text-link text-link--quiet" href="/pflege-klinik">Mehr zu Pflege und Klinik</a>
+        <a class="text-link text-link--quiet" href={u('/pflege-klinik')}>Mehr zu Pflege und Klinik</a>
       </p>
     </div>
   </div>
