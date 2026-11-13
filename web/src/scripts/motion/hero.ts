@@ -58,5 +58,4 @@ export function initHero() {
     scrollTrigger: { trigger: hero, start: '35% top', end: 'bottom top', scrub: true },
   });
 
-  document.documentElement.classList.remove('m');
 }

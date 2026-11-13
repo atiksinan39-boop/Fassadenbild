@@ -22,9 +22,9 @@ export function scrollToY(y: number) {
   else window.scrollTo({ top: y, behavior: 'auto' });
 }
 
-export function scrollToTarget(el: HTMLElement) {
+export function scrollToTarget(el: HTMLElement, immediate = false) {
   const isTop = el.id === 'top';
-  if (lenis) lenis.scrollTo(isTop ? 0 : el, { offset: isTop ? 0 : -navOffset() + 1, duration: 1.2 });
+  if (lenis) lenis.scrollTo(isTop ? 0 : el, { offset: isTop ? 0 : -navOffset() + 1, duration: 1.2, immediate });
   else el.scrollIntoView({ block: 'start' });
 }
 

@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base title="Danke" cta="/kontakt" noindex>
+  <PageHero label="Anfrage gesendet" title="Danke." intro="Die Anfrage ist angekommen. Der Musterfächer wird vorbereitet.">
+    <p style="margin-top:28px"><a class="text-link" href="/">Zur Startseite</a></p>
+  </PageHero>
+  <Footer standalone slot="after" />
+</Base>

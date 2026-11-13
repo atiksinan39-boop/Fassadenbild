@@ -8,20 +8,25 @@ const steps = [
   ['04', 'Verklebung', 'Durch geschulte Maler- und Partnerbetriebe in Deutschland und Österreich. [MONTAGEZEIT PRO m²]'],
 ];
 ---
-<section class="ablauf on-dark" aria-labelledby="ablauf-title">
+<section class="ablauf on-dark" id="ablauf" aria-labelledby="ablauf-title">
   <div class="wrap sec ablauf__grid">
     <div>
-      <p class="label" style="margin-bottom:18px">03 — Ablauf</p>
-      <h2 class="h-sec" id="ablauf-title">Erst den Ort lesen. Dann die Wand.</h2>
-      <Picture class="ablauf__img" src={process} formats={['avif', 'webp']} widths={[480, 800, 1200]} sizes="(min-width: 1024px) 45vw, 100vw" alt="Illustration: Hand skizziert eine begrünte Wandfläche mit Materialnotizen" />
+      <p class="label" style="margin-bottom:18px" data-reveal-label>03 — Ablauf</p>
+      <h2 class="h-sec" id="ablauf-title" data-reveal-lines>Erst den Ort lesen. Dann die Wand.</h2>
+      <div class="ablauf__img" data-wipe>
+        <Picture src={process} formats={['avif', 'webp']} widths={[480, 800, 1200]} sizes="(min-width: 1024px) 45vw, 100vw" alt="Illustration: Hand skizziert eine begrünte Wandfläche mit Materialnotizen" />
+      </div>
     </div>
-    <ol class="steps">
-      {steps.map(([n, h, t]) => (
-        <li>
-          <span class="steps__no">{n}</span>
-          <div><h3 class="h-item">{h}</h3><p>{t}</p></div>
-        </li>
-      ))}
-    </ol>
+    <div class="steps-wrap" data-steps>
+      <span class="steps__line" aria-hidden="true"><span class="steps__fill" data-steps-fill></span></span>
+      <ol class="steps">
+        {steps.map(([n, h, t]) => (
+          <li>
+            <span class="steps__no">{n}</span>
+            <div><h3 class="h-item">{h}</h3><p>{t}</p></div>
+          </li>
+        ))}
+      </ol>
+    </div>
   </div>
 </section>

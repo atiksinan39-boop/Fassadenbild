@@ -1,21 +1,25 @@
 ---
+interface Props { cta?: string }
+const { cta = '#kontakt' } = Astro.props;
 const links = [
-  { href: '#system', label: 'System', no: '01' },
-  { href: '#einsatz', label: 'Einsatz', no: '02' },
-  { href: '#referenzen', label: 'Referenzen', no: '04' },
-  { href: '#humaneco', label: 'HumanEco', no: '05' },
+  { href: '/system', label: 'System', no: '01' },
+  { href: '/pflege-klinik', label: 'Pflege und Klinik', no: '02' },
+  { href: '/referenzen', label: 'Referenzen', no: '03' },
+  { href: '/humaneco', label: 'HumanEco', no: '04' },
 ];
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const cur = (href: string) => (path === href ? 'page' : undefined);
 ---
 <header class="site-nav" data-nav>
   <div class="site-nav__inner">
-    <a class="brand" href="#top" aria-label="CoverCraft, zum Seitenanfang">
+    <a class="brand" href="/" aria-label="CoverCraft, Startseite">
       <span class="brand__name">CoverCraft</span>
       <span class="brand__sub label">Surface Design Engineering</span>
     </a>
     <nav aria-label="Hauptnavigation">
       <ul class="site-nav__links">
-        {links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
-        <li><a class="nav-cta" href="#kontakt">Musterfächer anfordern</a></li>
+        {links.map((l) => <li><a href={l.href} aria-current={cur(l.href)}>{l.label}</a></li>)}
+        <li><a class="nav-cta" href={cta}>Musterfächer anfordern</a></li>
       </ul>
     </nav>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" data-menu-btn>
@@ -25,9 +29,10 @@ const links = [
   <div class="menu on-dark" id="menu" hidden data-menu>
     <nav aria-label="Menü">
       <ul>
-        {links.map((l) => <li><a href={l.href}>{l.label}<span>{l.no}</span></a></li>)}
+        {links.map((l) => <li><a href={l.href} aria-current={cur(l.href)}>{l.label}<span>{l.no}</span></a></li>)}
+        <li><a href="/kontakt" aria-current={cur('/kontakt')}>Kontakt<span>05</span></a></li>
       </ul>
     </nav>
-    <a class="btn-primary" href="#kontakt">Technischen Musterfächer anfordern</a>
+    <a class="btn-primary" href={cta}>Technischen Musterfächer anfordern</a>
   </div>
 </header>

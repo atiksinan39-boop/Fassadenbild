@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Kontakt from '../components/Kontakt.astro';
+import care from '../assets/care.jpg';
+
+const bereiche = [
+  { ort: 'Bad, Dusche, Wanne', produkt: 'WandSchmuck Wet', href: '/system#wet', text: 'Beständig gegen Fließwasser, Desinfektionsmittel und Scheuern.' },
+  { ort: 'Flure und Treppenhäuser', produkt: 'WandSchmuck Strong', href: '/system#strong', text: 'Hoch lichtbeständig und scheuerbeständig. Für Flure mit Betten- und Wagenverkehr.' },
+  { ort: 'Aufenthalt, Wohnen, Empfang', produkt: 'WandSchmuck Interior', href: '/system#interior', text: 'Lichtbeständig, nass wischbar, wieder ablösbar.' },
+  { ort: 'Fassade und Eingang', produkt: 'Fassadenbild', href: '/system#fassadenbild', text: 'Die Außentapete auf Mesh-Gewebe, in einer Bahn bis 500 cm. Brandklasse B-s1, d0 (IBS Linz).' },
+];
+const punkte = [
+  ['Ohne Bohren', 'Der Bildträger wird vollflächig verklebt. Das Mauerwerk bleibt unversehrt.'],
+  ['Ohne Abriss', 'Bestehende Fliesen werden überarbeitet statt herausgeschlagen.'],
+  ['Reinigung', 'Mit üblichen Reinigern. WandSchmuck Wet ist zusätzlich beständig gegen Desinfektionsmittel.'],
+  ['Überarbeitbar', 'Die Fläche lässt sich später spachteln, überstreichen oder neu beschichten.'],
+];
+---
+<Base title="Pflege und Klinik" description="Wandbilder für Pflegeeinrichtungen und Kliniken: desinfektionsmittel- und scheuerbeständige Bildträger für Bad, Flur und Aufenthaltsraum. Montage ohne Bohren.">
+  <PageHero label="Pflege und Klinik" title="Kunst jenseits Fürsorge." image={care}
+    intro="An Orten, in denen Menschen wider Willen leben, ist das Schöne notwendiger denn je. Ein Flur wird zur Orientierung, ein Bad zum Ort der Ruhe, ein Aufenthaltsraum zum Stück Zuhause." />
+
+  <section class="wrap sec" aria-labelledby="bereiche-title">
+    <div class="sec-head">
+      <div>
+        <p class="label" data-reveal-label>01 — Bereiche</p>
+        <h2 class="h-sec" id="bereiche-title" data-reveal-lines>Für jeden Raum der passende Träger.</h2>
+      </div>
+      <p class="lead" data-reveal-fade>Vier Bildträger, ein Klebeverfahren. Welcher Träger wohin gehört, entscheidet die Beanspruchung der Wand.</p>
+    </div>
+    <ul class="rows" data-stagger>
+      {bereiche.map((b, i) => (
+        <li>
+          <span class="rows__no mono">{String(i + 1).padStart(2, '0')}</span>
+          <span class="rows__title">{b.ort}</span>
+          <span class="rows__text">{b.text}</span>
+          <a class="rows__link" href={b.href}>{b.produkt}</a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="band band--petrol on-dark" aria-labelledby="unterhalt-title">
+    <div class="wrap sec">
+      <p class="label" data-reveal-label>02 — Montage und Unterhalt</p>
+      <h2 class="h-sec" id="unterhalt-title" data-reveal-lines style="margin-top:18px; max-width:16ch">Die Wand bleibt, wie sie ist. Nur das Bild kommt dazu.</h2>
+      <div class="quad" data-stagger>
+        {punkte.map(([h, t]) => (
+          <div><h3 class="h-item">{h}</h3><p>{t}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap sec" aria-labelledby="pk-ref-title">
+    <p class="label" data-reveal-label>03 — Referenz</p>
+    <div class="feature">
+      <div>
+        <h2 class="h-sec" id="pk-ref-title" data-reveal-lines>Betreutes Wohnen Köflach</h2>
+        <p class="feature__num mono"><span class="num" data-count-view="1100">1.100</span> m²</p>
+        <p class="lead" data-reveal-fade>Das größte dokumentierte Projekt. <span class="ph">[PROJEKTBESCHREIBUNG ERGÄNZEN]</span></p>
+        <p><a class="text-link text-link--quiet" href="/referenzen">Zur Referenzseite</a></p>
+      </div>
+      <div class="photo-ph" data-wipe><span class="label label--s">[PROJEKTFOTO]</span></div>
+    </div>
+  </section>
+
+  <section class="band band--white" aria-label="Aus dem Manifest">
+    <div class="wrap sec">
+      <figure class="quote">
+        <blockquote data-ink>Ein Ort ist Verortung und niemals neutral.</blockquote>
+        <figcaption class="label">Manifest HumanEco · Kapitel 04 · <a href="/humaneco#kapitel-fuersorge">Kunst jenseits Fürsorge</a></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <Kontakt />
+</Base>

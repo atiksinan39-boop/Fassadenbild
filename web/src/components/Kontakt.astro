@@ -1,33 +1,37 @@
 ---
 import { Picture } from 'astro:assets';
 import halle from '../assets/halle.jpg';
+import Footer from './Footer.astro';
 ---
-<section class="kontakt on-dark" id="kontakt" aria-labelledby="form-title">
+<section class="kontakt on-dark" id="kontakt" aria-labelledby="form-title" data-kontakt>
   <div class="kontakt__bg" aria-hidden="true">
     <Picture src={halle} formats={['avif', 'webp']} widths={[800, 1200, 1600]} sizes="100vw" alt="" />
   </div>
   <div class="kontakt__shade" aria-hidden="true"></div>
   <div class="wrap kontakt__grid">
     <div>
-      <p class="label">Schlusswort der Wände</p>
-      <p class="kontakt__claim">Wir sind da, auch morgen noch. Unter deinen Schritten. Unter deinen Blicken.</p>
-      <p class="kontakt__promise">Immer. Versprochen.</p>
-      <div class="addresses">
+      <p class="label" data-reveal-label>Schlusswort der Wände</p>
+      <p class="kontakt__claim" data-claim>Wir sind da, auch morgen noch. Unter deinen Schritten. Unter deinen Blicken.</p>
+      <p class="kontakt__promise" data-promise>Immer. Versprochen.</p>
+      <div class="addresses" data-reveal-fade>
         <div><p class="label label--s">Deutschland</p>R.C. Salih Atik<br />Florstraße 39, 13187 Berlin<br /><span class="ph">[TELEFON] · [E-MAIL]</span></div>
         <div><p class="label label--s">Österreich · Technik</p>Mag. Astrid Schmuck-Ploner<br /><span class="ph">[ADRESSE]</span><br /><span class="ph">[TELEFON] · [E-MAIL]</span></div>
       </div>
     </div>
 
-    <form class="form" aria-labelledby="form-title" method="post" data-form novalidate>
+    <!-- Netlify Forms: wird beim Deploy erkannt. Ohne JS normaler POST nach /danke. -->
+    <form class="form" name="musterfaecher" method="POST" action="/danke" data-netlify="true" netlify-honeypot="website" aria-labelledby="form-title" data-form novalidate>
+      <input type="hidden" name="form-name" value="musterfaecher" />
+      <p class="form__hp" aria-hidden="true"><label>Dieses Feld bitte leer lassen <input name="website" tabindex="-1" autocomplete="off" /></label></p>
       <h2 id="form-title">Technischen Musterfächer anfordern</h2>
       <p>Alle vier Träger zum Anfassen, mit Datenblättern und Prüfzeugnissen.</p>
       <label>
         <span>Name <span class="req">Pflicht</span></span>
-        <input type="text" name="name" autocomplete="name" required />
+        <input type="text" name="name" autocomplete="name" required aria-describedby="form-status" />
       </label>
       <label>
         <span>E-Mail <span class="req">Pflicht</span></span>
-        <input type="email" name="email" autocomplete="email" required />
+        <input type="email" name="email" autocomplete="email" required aria-describedby="form-status" />
       </label>
       <label>
         Ich plane für
@@ -44,16 +48,9 @@ import halle from '../assets/halle.jpg';
         <textarea name="projekt" rows="3"></textarea>
       </label>
       <button class="btn-primary" type="submit">Musterfächer anfordern</button>
-      <p class="form__status" role="status" data-form-status></p>
+      <p class="form__status" id="form-status" role="status" data-form-status></p>
+      <p class="form__legal">Die Angaben werden nur zur Bearbeitung der Anfrage verwendet. Mehr dazu in der <a href="/datenschutz">Datenschutzerklärung</a>.</p>
     </form>
   </div>
-
-  <footer class="site-footer">
-    <div class="wrap">
-      <span>CoverCraft · Surface Design Engineering · Technologie &amp; Handwerk</span>
-      <nav aria-label="Rechtliches">
-        <a href="#top">Impressum</a><a href="#top">Datenschutz</a><a href="#top">AGB</a>
-      </nav>
-    </div>
-  </footer>
+  <Footer />
 </section>

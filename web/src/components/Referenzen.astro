@@ -1,21 +1,31 @@
 ---
 import { referenzen, formatM2 } from '../data/content';
+interface Props { full?: boolean }
+const { full = false } = Astro.props;
 ---
 <section class="wrap sec" id="referenzen" aria-labelledby="ref-title">
-  <div class="sec-head" style="margin-bottom:48px">
-    <div>
-      <p class="label">04 — Referenzen</p>
-      <h2 class="h-sec" id="ref-title">Gemessen in Quadratmetern.</h2>
+  {!full && (
+    <div class="sec-head" style="margin-bottom:48px">
+      <div>
+        <p class="label" data-reveal-label>04 — Referenzen</p>
+        <h2 class="h-sec" id="ref-title" data-reveal-lines>Gemessen in Quadratmetern.</h2>
+      </div>
+      <p class="lead" style="max-width:420px" data-reveal-fade>Eine Auswahl aus 40 dokumentierten Projekten, vom Goldschatz mit 2 m² bis zur Wohnanlage.</p>
     </div>
-    <p class="lead" style="max-width:420px">Eine Auswahl aus 40 dokumentierten Projekten, vom Goldschatz mit 2 m² bis zur Wohnanlage.</p>
-  </div>
-  <ul class="refs">
+  )}
+  {full && <h2 class="sr-only" id="ref-title">Projektliste</h2>}
+  <ul class="refs" data-refs>
     {referenzen.map((r) => (
-      <li>
+      <li data-ref={r.name}>
         <span class="refs__name">{r.name} {r.meta && <small>{r.meta}</small>}</span>
-        <span class="refs__m2">{formatM2(r.m2)} m²</span>
+        <span class="refs__m2"><span class="num" data-count-view={r.m2}>{formatM2(r.m2)}</span> m²</span>
       </li>
     ))}
   </ul>
-  <p class="ph refs-note">[PROJEKTFOTOS UND ZWEI BIS DREI AKTUELLE REFERENZEN AB 2023 ERGÄNZEN]</p>
+  <p class="ph refs-note">{full ? '[WEITERE DOKUMENTIERTE PROJEKTE, PROJEKTFOTOS UND AKTUELLE REFERENZEN AB 2023 ERGÄNZEN]' : '[PROJEKTFOTOS UND ZWEI BIS DREI AKTUELLE REFERENZEN AB 2023 ERGÄNZEN]'}</p>
+  {!full && <p><a class="text-link text-link--quiet" href="/referenzen">Zur Referenzseite</a></p>}
+  <div class="ref-float" aria-hidden="true" data-ref-float>
+    <span class="label label--s">[PROJEKTFOTO]</span>
+    <span class="ref-float__name" data-ref-float-name></span>
+  </div>
 </section>

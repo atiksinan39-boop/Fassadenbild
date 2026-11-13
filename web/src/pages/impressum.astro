@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base title="Impressum" cta="/kontakt">
+  <PageHero compact label="Rechtliches" title="Impressum" />
+  <div class="wrap sec prose">
+    <p class="ph">[ENTWURF: ANGABEN VOR VERÖFFENTLICHUNG VERVOLLSTÄNDIGEN UND PRÜFEN]</p>
+
+    <h2>Angaben gemäß § 5 DDG</h2>
+    <p>CoverCraft<br />Inhaber: R.C. Salih Atik<br />Florstraße 39<br />13187 Berlin</p>
+
+    <h2>Kontakt</h2>
+    <p>Telefon: <span class="ph">[TELEFON]</span><br />E-Mail: <span class="ph">[E-MAIL]</span></p>
+
+    <h2>Umsatzsteuer</h2>
+    <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a UStG: <span class="ph">[UST-IDNR., FALLS VORHANDEN]</span></p>
+
+    <h2>Ansprechpartnerin Österreich, Technik</h2>
+    <p>Mag. Astrid Schmuck-Ploner<br /><span class="ph">[ADRESSE]</span><br /><span class="ph">[TELEFON] · [E-MAIL]</span></p>
+
+    <h2>Verantwortlich für den Inhalt gemäß § 18 Abs. 2 MStV</h2>
+    <p>R.C. Salih Atik, Anschrift wie oben</p>
+
+    <h2>Bildnachweis</h2>
+    <p>Alle Illustrationen stammen aus dem Manifest HumanEco von R.C. Salih Atik. Die Rechte liegen beim Inhaber.</p>
+
+    <h2>Schrift</h2>
+    <p>Geist und Geist Mono, lizenziert unter der SIL Open Font License 1.1. Die Schriften werden von diesem Server ausgeliefert.</p>
+  </div>
+  <Footer standalone slot="after" />
+</Base>

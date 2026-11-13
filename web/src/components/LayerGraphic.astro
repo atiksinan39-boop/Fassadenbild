@@ -103,15 +103,23 @@ const dimText = { x: mid.x - 0.5 * 12, y: mid.y - 0.866 * 12 };
               BAHN BIS <tspan data-dim-val>500</tspan> CM
             </text>
           )}
-          <g class="lbl" data-label>
-            <circle cx={corner.r[0]} cy={corner.r[1]} r="2.5" fill="#0B1D21" />
-            <line class="leader" x1={corner.r[0]} y1={corner.r[1]} x2={LABEL_X - 10} y2={corner.r[1]} pathLength="1" data-leader />
-            <text class="lbl-no" x={LABEL_X} y={corner.r[1] - 6}>{L.no} — {L.name}</text>
-            <text class="lbl-detail" x={LABEL_X} y={corner.r[1] + 16} data-detail={L.key}>{L.detail}</text>
-          </g>
+          <circle cx={corner.r[0]} cy={corner.r[1]} r="2.5" fill="#0B1D21" data-dot />
         </g>
       </g>
     ))}
+
+    <!-- Beschriftung steht fest; die Führungslinien folgen den Schichten (per JS) -->
+    {layers.map((L) => (
+      <g transform={`translate(${X0} ${L.y})`} class="lbl" data-label={L.key}>
+        <path class="leader" fill="none" d={`M${corner.r[0]} ${corner.r[1]}L${LABEL_X - 36} ${corner.r[1]}L${LABEL_X - 10} ${corner.r[1]}`}
+          data-leader={L.key} data-x0={corner.r[0]} data-y0={corner.r[1]} data-x1={LABEL_X - 36} data-x2={LABEL_X - 10} />
+        <text class="lbl-no" x={LABEL_X} y={corner.r[1] - 6}>{L.no} — {L.name}</text>
+        <text class="lbl-detail" x={LABEL_X} y={corner.r[1] + 16} data-detail={L.key}>{L.detail}</text>
+      </g>
+    ))}
+
+    <!-- erscheint nur im zusammengefügten Zustand der Scroll-Sequenz -->
+    <text class="dim-text bond-text" x={X0 - 124} y="468" text-anchor="middle" transform={`rotate(30 ${X0 - 124} 468)`} opacity="0" data-bond>VOLLFLÄCHIG VERKLEBT</text>
   </svg>
   <figcaption class="label label--s">Schema, nicht maßstäblich · Motive: Illustrationen aus dem Manifest</figcaption>
 </figure>

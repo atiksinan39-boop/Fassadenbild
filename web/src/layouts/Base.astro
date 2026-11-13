@@ -1,38 +1,57 @@
 ---
 import '../styles/global.css';
 import 'lenis/dist/lenis.css';
+import Nav from '../components/Nav.astro';
 
 interface Props {
   title?: string;
   description?: string;
+  /** Ziel des Navigations-Buttons: Formular auf dieser Seite oder Kontaktseite */
+  cta?: string;
+  noindex?: boolean;
 }
 const {
-  title = 'CoverCraft – Surface Design Engineering',
+  title,
   description = 'CoverCraft bringt Bildkunst dauerhaft auf Fassade, Innenwand und Nassraum. Gedruckt in einer Bahn, verklebt mit einem patentierten Verfahren. Ohne Bohren, ohne Abriss.',
+  cta = '#kontakt',
+  noindex = false,
 } = Astro.props;
+const fullTitle = title ? `${title} · CoverCraft` : 'CoverCraft – Surface Design Engineering';
 ---
 <!doctype html>
 <html lang="de">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{title}</title>
+  <title>{fullTitle}</title>
   <meta name="description" content={description} />
   <meta name="theme-color" content="#07171A" />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  {noindex && <meta name="robots" content="noindex" />}
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/GeistMono-Variable.woff2" as="font" type="font/woff2" crossorigin />
   <script is:inline>
     // Bewegung nur ohne prefers-reduced-motion. Sicherheitsnetz: nach 3 s alles sichtbar.
-    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.documentElement.classList.add('m');
-      setTimeout(function () { if (!window.__ccMotion) document.documentElement.classList.remove('m'); }, 3000);
-    }
+    (function () {
+      var d = document.documentElement;
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      d.classList.add('m');
+      try { if (sessionStorage.getItem('cc-fade')) { sessionStorage.removeItem('cc-fade'); d.classList.add('is-arriving'); } } catch (e) {}
+      setTimeout(function () { if (!window.__ccMotion) d.classList.remove('m', 'is-arriving'); }, 3000);
+    })();
   </script>
 </head>
 <body>
   <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
-  <slot />
+  <Nav cta={cta} />
+  <main id="inhalt" tabindex="-1">
+    <slot />
+  </main>
+  <slot name="after" />
+  <div class="page-fade" aria-hidden="true"></div>
   <script>
     import '../scripts/main';
   </script>

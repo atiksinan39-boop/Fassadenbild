@@ -1,0 +1,129 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import LayerGraphic from '../components/LayerGraphic.astro';
+import Kontakt from '../components/Kontakt.astro';
+import { products } from '../data/content';
+
+const aufbau = [
+  ['01', 'Wand', 'Fassade, Innenwand oder Nassbereich. Es wird nicht gebohrt, das Mauerwerk bleibt unversehrt.'],
+  ['02', 'Kleber', 'Patentiertes Wandklebeverfahren. Der Bildträger wird vollflächig verklebt.'],
+  ['03', 'Träger', 'Mesh-Gewebe für außen, Fiberglas in Leinenoptik für innen.'],
+  ['04', 'Druck', 'In einer Bahn: bis 500 cm Breite außen, bis 300 cm innen. Das Motiv ist frei gestaltbar.'],
+];
+// Quelle: fassadenbild.com, Seite „Umsetzung“ (Schritte 04 Untergrund und 05 Verarbeitung)
+const untergruende = [
+  'glatt verputztes Mauerwerk',
+  'unbeschichteter glatter Beton',
+  'Capatect-WDVS-Systeme',
+  'matte Dispersionsfarbbeschichtungen',
+  'gespachtelte Putzträgerplatten, Gipsbau, Gipskarton- und Gipsfaserplatten',
+];
+const verarbeitung = [
+  'Systemkleber bahnenweise vorlegen',
+  'Bildbahnen ins Kleberbett einbetten und glätten',
+  'Am Folgetag oder nach vollständiger Durchtrocknung mit passendem Finish versiegeln',
+];
+const docs = (id: string) =>
+  id === 'fassadenbild'
+    ? [['Brandklasse', 'B-s1, d0 · geprüft: IBS Linz'], ['Prüfzeugnis', '[PRÜFZEUGNIS PDF]'], ['Datenblatt', '[DATENBLATT PDF]']]
+    : [['Prüfzeugnisse', '[PRÜFZEUGNISSE PDF]'], ['Datenblatt', '[DATENBLATT PDF]']];
+---
+<Base title="System: Technik je Träger" description="Ein patentiertes Wandklebeverfahren, vier Bildträger: Fassadenbild, WandSchmuck Interior, Strong und Wet. Bahnbreiten, Beständigkeit, Einsatz.">
+  <PageHero label="01 — System" title="Ein Verfahren, vier Träger." intro="Basis aller Produkte ist ein patentiertes Wandklebeverfahren. Der Bildträger wird vollflächig verklebt, das Mauerwerk bleibt unversehrt. Später lässt sich die Fläche spachteln, überstreichen oder neu beschichten." />
+
+  <section class="band band--white" aria-labelledby="aufbau-title">
+    <div class="wrap sec split">
+      <LayerGraphic />
+      <div>
+        <p class="label" data-reveal-label>Aufbau</p>
+        <h2 class="h-sec" id="aufbau-title" data-reveal-lines style="margin-top:18px">Vier Schichten, eine Fläche.</h2>
+        <ol class="deflist" data-stagger style="margin-top:36px">
+          {aufbau.map(([n, h, t]) => (
+            <li><span class="deflist__k">{n} · {h}</span><span>{t}</span></li>
+          ))}
+        </ol>
+        <p class="lead" style="margin-top:28px; max-width:540px" data-reveal-fade>Die Außentapete wurde 2009 entwickelt. Jede Fläche bleibt überarbeitbar: spachteln, überstreichen, neu beschichten.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap sec" aria-labelledby="vergleich-title">
+    <div class="sec-head">
+      <div>
+        <p class="label" data-reveal-label>Vergleich</p>
+        <h2 class="h-sec" id="vergleich-title" data-reveal-lines>Die vier Träger im Überblick.</h2>
+      </div>
+      <p class="lead" data-reveal-fade>Technische Datenblätter und Prüfzeugnisse liegen dem Musterfächer bei.</p>
+    </div>
+    <table class="ptable">
+      <thead>
+        <tr><th scope="col">Produkt</th><th scope="col">Bildträger</th><th scope="col">Bahn max.</th><th scope="col">Beständigkeit</th><th scope="col">Einsatz</th><th scope="col">Richtpreis</th></tr>
+      </thead>
+      <tbody data-stagger>
+        {products.map((p) => (
+          <tr>
+            <th scope="row"><a href={`#${p.id}`}>{p.name}</a>{p.sub && <small>{p.sub}</small>}</th>
+            <td data-th="Bildträger">{p.traeger}</td>
+            <td data-th="Bahn max." class="mono">{p.bahn} cm</td>
+            <td data-th="Beständigkeit">{p.bestaendigkeit}</td>
+            <td data-th="Einsatz">{p.einsatz}</td>
+            <td data-th="Richtpreis" class="ph">{p.preis}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="band band--petrol on-dark" aria-labelledby="untergrund-title">
+    <div class="wrap sec">
+      <p class="label" data-reveal-label>Untergrund und Verarbeitung</p>
+      <h2 class="h-sec" id="untergrund-title" data-reveal-lines style="margin-top:18px; max-width:18ch">Glatt, sauber, trocken, tragfähig.</h2>
+      <div class="duo">
+        <div data-reveal-fade>
+          <h3 class="h-item">Untergrund</h3>
+          <p>Innen wie außen soll der Bilduntergrund glatt, sauber, fettfrei, trocken, tragfähig und gleichmäßig leicht saugfähig sein. Geeignet sind zum Beispiel:</p>
+          <ul class="plain" data-stagger>
+            {untergruende.map((u) => <li>{u}</li>)}
+          </ul>
+        </div>
+        <div data-reveal-fade>
+          <h3 class="h-item">Verarbeitung in drei Schritten</h3>
+          <p>Geliefert wird als konfektionierte Rollenware mit Verlegeplan. Soll der Farbton genau stimmen, empfiehlt sich ein Probedruck zur Freigabe.</p>
+          <ol class="plain plain--num" data-stagger>
+            {verarbeitung.map((v, i) => <li><span class="mono">{String(i + 1).padStart(2, '0')}</span>{v}</li>)}
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--white" aria-label="Technik je Träger">
+    <div class="wrap sec">
+      {products.map((p, i) => (
+        <article class="tech" id={p.id} aria-labelledby={`t-${p.id}`}>
+          <div class="tech__head">
+            <p class="label" data-reveal-label>Träger {String(i + 1).padStart(2, '0')} / 04</p>
+            <h2 class="h-sec" id={`t-${p.id}`} data-reveal-lines>{p.name}</h2>
+            {p.sub && <p class="spec__sub">{p.sub}</p>}
+            <p class="tech__bahn mono"><span class="num" data-count-view={p.bahn}>{p.bahn}</span><small> cm Bahnbreite</small></p>
+          </div>
+          <div data-reveal-fade>
+            <dl class="deflist">
+              <div><dt class="deflist__k">Bildträger</dt><dd>{p.traeger}</dd></div>
+              <div><dt class="deflist__k">Beständigkeit</dt><dd>{p.bestaendigkeit}</dd></div>
+              <div><dt class="deflist__k">Einsatz</dt><dd>{p.einsatz}</dd></div>
+              <div><dt class="deflist__k">Montage</dt><dd>Vollflächig verklebt, ohne Bohren. {p.id === 'interior' ? 'Wieder ablösbar.' : ''}</dd></div>
+              <div><dt class="deflist__k">Richtpreis</dt><dd class="ph">{p.preis}</dd></div>
+              {docs(p.id).map(([k, v]) => (
+                <div><dt class="deflist__k">{k}</dt><dd class={v.startsWith('[') ? 'ph' : ''}>{v}</dd></div>
+              ))}
+            </dl>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <Kontakt />
+</Base>

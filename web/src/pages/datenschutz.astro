@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base title="Datenschutz" cta="/kontakt">
+  <PageHero compact label="Rechtliches" title="Datenschutz" />
+  <div class="wrap sec prose">
+    <p class="ph">[ENTWURF: BESCHREIBT DEN TECHNISCHEN STAND DER SEITE. VOR VERÖFFENTLICHUNG RECHTLICH PRÜFEN LASSEN]</p>
+
+    <h2>1. Verantwortlicher</h2>
+    <p>CoverCraft, Inhaber R.C. Salih Atik, Florstraße 39, 13187 Berlin.<br />E-Mail: <span class="ph">[E-MAIL]</span></p>
+
+    <h2>2. Was diese Website nicht tut</h2>
+    <p>Diese Website setzt keine Cookies, verwendet keine Analyse- oder Werbedienste und bindet keine Inhalte von Drittservern ein. Schriften und Bilder werden vom eigenen Webspace geladen.</p>
+
+    <h2>3. Hosting und Server-Protokolle</h2>
+    <p>Die Website wird bei <span class="ph">[HOSTER, Z. B. NETLIFY, INC., USA]</span> gehostet. Beim Aufruf verarbeitet der Hoster technisch notwendige Daten, etwa IP-Adresse, Zeitpunkt, aufgerufene Seite und Browsertyp, um die Seite auszuliefern und den Betrieb zu sichern. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. <span class="ph">[AUFTRAGSVERARBEITUNGSVERTRAG UND GRUNDLAGE DER DRITTLANDÜBERMITTLUNG ERGÄNZEN]</span></p>
+
+    <h2>4. Formular „Musterfächer anfordern“</h2>
+    <p>Über das Formular werden Name, E-Mail-Adresse, die gewählte Angabe „Ich plane für“ und freiwillige Angaben zu Fläche und Ort übermittelt. Die Daten werden ausschließlich verwendet, um die Anfrage zu bearbeiten und den Musterfächer zu versenden. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO.</p>
+    <p>Technisch wird das Formular über <span class="ph">[FORMULARDIENST, Z. B. NETLIFY FORMS]</span> verarbeitet. Die Daten werden gelöscht, sobald die Anfrage abgeschlossen ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen. <span class="ph">[SPEICHERDAUER FESTLEGEN]</span></p>
+
+    <h2>5. Ihre Rechte</h2>
+    <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch (Art. 15 bis 21 DSGVO). Dazu genügt eine Nachricht an die oben genannte Adresse.</p>
+
+    <h2>6. Beschwerderecht</h2>
+    <p>Sie können sich bei einer Datenschutz-Aufsichtsbehörde beschweren. Zuständig für Berlin ist die Berliner Beauftragte für Datenschutz und Informationsfreiheit.</p>
+
+    <p class="ph">[STAND: DATUM DER VERÖFFENTLICHUNG]</p>
+  </div>
+  <Footer standalone slot="after" />
+</Base>

@@ -1,0 +1,26 @@
+---
+import { Picture } from 'astro:assets';
+interface Props { label: string; title: string; intro?: string; image?: ImageMetadata; compact?: boolean }
+const { label, title, intro, image, compact = false } = Astro.props;
+const words = title.split(' ');
+---
+<section class:list={['page-hero', 'on-dark', { 'page-hero--compact': compact }]} data-page-hero>
+  {image && (
+    <div class="page-hero__media" aria-hidden="true" data-page-hero-media>
+      <Picture src={image} formats={['avif', 'webp']} widths={[640, 960, 1280, 1600]} sizes="100vw" alt="" loading="eager" fetchpriority="high" />
+    </div>
+  )}
+  {image && <div class="page-hero__shade" aria-hidden="true"></div>}
+  <div class="wrap page-hero__body">
+    <p class="label page-hero__in">{label}</p>
+    <h1 class="page-hero__title">
+      {words.map((w, i) => (
+        <>
+          <span class="w"><span class="wi" style={`--i:${i}`}>{w}</span></span>{i < words.length - 1 ? ' ' : ''}
+        </>
+      ))}
+    </h1>
+    {intro && <p class="page-hero__intro page-hero__in page-hero__in--late">{intro}</p>}
+    <slot />
+  </div>
+</section>

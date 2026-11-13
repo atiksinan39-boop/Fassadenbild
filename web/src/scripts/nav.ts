@@ -37,17 +37,37 @@ export function initNav() {
   window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => { if (e.matches) setOpen(false, false); });
 
   // Ankerlinks: weiches Scrollen + Fokus auf das Ziel (Tastaturbedienung)
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.addEventListener('click', (e) => {
-    const a = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="#"]');
-    if (!a) return;
-    const id = a.getAttribute('href')!.slice(1);
-    const target = id ? document.getElementById(id) : null;
-    if (!target) return;
-    e.preventDefault();
-    if (btn?.getAttribute('aria-expanded') === 'true') setOpen(false, false);
-    scrollToTarget(target);
-    history.pushState(null, '', `#${id}`);
-    if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
-    target.focus({ preventScroll: true });
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href]');
+    if (!a || a.target === '_blank' || a.hasAttribute('download')) return;
+    const url = new URL(a.href, location.href);
+    if (url.origin !== location.origin) return;
+    const samePage = url.pathname.replace(/\/$/, '') === location.pathname.replace(/\/$/, '');
+
+    if (samePage && url.hash) {
+      const target = document.getElementById(url.hash.slice(1));
+      if (!target) return;
+      e.preventDefault();
+      if (btn?.getAttribute('aria-expanded') === 'true') setOpen(false, false);
+      scrollToTarget(target);
+      history.pushState(null, '', url.hash);
+      if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+      return;
+    }
+
+    // Seitenwechsel: kurze Überblendung über dunklen Grund
+    if (!samePage && !reduce) {
+      e.preventDefault();
+      try { sessionStorage.setItem('cc-fade', '1'); } catch {}
+      document.documentElement.classList.add('is-leaving');
+      window.setTimeout(() => { location.href = url.href; }, 330);
+    }
+  });
+  // Zurück aus dem Browser-Cache: Überblendung nicht stehen lassen
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) document.documentElement.classList.remove('is-leaving', 'is-arriving');
   });
 }
