@@ -1,0 +1,44 @@
+---
+import { Picture } from 'astro:assets';
+import materie from '../assets/materie.jpg';
+import fuersorge from '../assets/fuersorge.jpg';
+import genius from '../assets/genius.jpg';
+import turm from '../assets/turm.jpg';
+import serendip from '../assets/serendip.jpg';
+import ornament from '../assets/ornament.jpg';
+const cards = [
+  { img: materie, white: true, no: '01', title: 'Materie ist Material', text: 'Um wieder glauben zu können, brauchen wir die Berührung.', alt: 'Illustration: Hand berührt eine Holzoberfläche' },
+  { img: fuersorge, no: '04', title: 'Kunst jenseits Fürsorge', text: 'Ein Ort ist Verortung und niemals neutral.', alt: 'Illustration: lichtdurchfluteter Gewölbegang mit Wandmalerei' },
+  { img: genius, no: '05', title: 'Genius Loci', text: 'Die Energie eines Ortes entspricht dem Ton A in der Musik.', alt: 'Illustration: runder Empfangsraum mit Lichtkuppel' },
+  { img: turm, no: '10', title: 'Der Turm gegen die Zeit', text: 'Manchmal bleiben Gäste, weil man sie nicht mehr gehen lassen will.', alt: 'Illustration: Eiffelturm bei Nacht aus der Untersicht' },
+  { img: serendip, no: '11', title: 'Serendipität', text: 'Gerade durch die Risse dringt das Licht ein.', alt: 'Illustration: Reiter auf einem gelben, sich verzweigenden Weg' },
+  { img: ornament, white: true, no: '13', title: 'Ornament oder Verbrechen?', text: 'Ornament ist nie ein Verbrechen, wenn es zu jemandem gehört.', alt: 'Illustration: ornamentaler Bogengang mit leuchtendem Boden' },
+];
+---
+<section class="humaneco" id="humaneco" aria-labelledby="he-title">
+  <div class="wrap sec">
+    <div class="humaneco__head">
+      <div>
+        <p class="label" style="margin-bottom:18px">05 — Manifest</p>
+        <h2 class="humaneco__title" id="he-title">HumanEco</h2>
+        <p class="humaneco__sub">in urbanen Habitaten</p>
+      </div>
+      <div>
+        <p class="lead humaneco__intro">Human und Eco. Im Eco steckt das griechische oikos: das Haus, der Ort, an den der Mensch gehört. Unser Manifest kreativer Perspektiven fragt, wie Orte zu einem Zuhause werden. Oder eben nicht.</p>
+        <a class="text-link" href="#kontakt" style="margin-top:20px">Manifest als PDF anfordern, 58 Seiten</a>
+      </div>
+    </div>
+    <div class="cards">
+      {cards.map((c) => (
+        <a class="card" href="#kontakt">
+          <span class:list={['card__media', { 'card__media--white': c.white }]}>
+            <Picture src={c.img} formats={['avif', 'webp']} widths={[400, 700, 1000]} sizes="(min-width: 1100px) 30vw, (min-width: 720px) 45vw, 100vw" alt={c.alt} />
+          </span>
+          <span class="label label--s">Kapitel {c.no}</span>
+          <span class="card__title">{c.title}</span>
+          <span class="card__text">{c.text}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

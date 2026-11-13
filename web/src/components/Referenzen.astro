@@ -1,0 +1,21 @@
+---
+import { referenzen, formatM2 } from '../data/content';
+---
+<section class="wrap sec" id="referenzen" aria-labelledby="ref-title">
+  <div class="sec-head" style="margin-bottom:48px">
+    <div>
+      <p class="label">04 — Referenzen</p>
+      <h2 class="h-sec" id="ref-title">Gemessen in Quadratmetern.</h2>
+    </div>
+    <p class="lead" style="max-width:420px">Eine Auswahl aus 40 dokumentierten Projekten, vom Goldschatz mit 2 m² bis zur Wohnanlage.</p>
+  </div>
+  <ul class="refs">
+    {referenzen.map((r) => (
+      <li>
+        <span class="refs__name">{r.name} {r.meta && <small>{r.meta}</small>}</span>
+        <span class="refs__m2">{formatM2(r.m2)} m²</span>
+      </li>
+    ))}
+  </ul>
+  <p class="ph refs-note">[PROJEKTFOTOS UND ZWEI BIS DREI AKTUELLE REFERENZEN AB 2023 ERGÄNZEN]</p>
+</section>

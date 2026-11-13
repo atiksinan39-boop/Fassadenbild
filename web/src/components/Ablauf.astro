@@ -1,0 +1,27 @@
+---
+import { Picture } from 'astro:assets';
+import process from '../assets/process.jpg';
+const steps = [
+  ['01', 'Ort', 'Maße, Untergrund, Licht, Nutzung. Jeder Ort erzählt seine Geschichte, bevor sie erzählt wird.'],
+  ['02', 'Motiv', 'Eigenes Bild, Entwurf unserer Grafikpartner oder ein Motiv aus dem Bestand. Frei gestaltbar bis zur letzten Kante.'],
+  ['03', 'Druck', 'In einer Bahn bis 500 cm Breite außen und 300 cm innen, auf Mesh oder Fiberglas.'],
+  ['04', 'Verklebung', 'Durch geschulte Maler- und Partnerbetriebe in Deutschland und Österreich. [MONTAGEZEIT PRO m²]'],
+];
+---
+<section class="ablauf on-dark" aria-labelledby="ablauf-title">
+  <div class="wrap sec ablauf__grid">
+    <div>
+      <p class="label" style="margin-bottom:18px">03 — Ablauf</p>
+      <h2 class="h-sec" id="ablauf-title">Erst den Ort lesen. Dann die Wand.</h2>
+      <Picture class="ablauf__img" src={process} formats={['avif', 'webp']} widths={[480, 800, 1200]} sizes="(min-width: 1024px) 45vw, 100vw" alt="Illustration: Hand skizziert eine begrünte Wandfläche mit Materialnotizen" />
+    </div>
+    <ol class="steps">
+      {steps.map(([n, h, t]) => (
+        <li>
+          <span class="steps__no">{n}</span>
+          <div><h3 class="h-item">{h}</h3><p>{t}</p></div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

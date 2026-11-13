@@ -1,0 +1,2 @@
+Hier Screenshots der Referenzseiten ablegen, z. B. 01-firmenname-hero.png.
+Dazu in BRIEF.md, Abschnitt 9, je Seite URL und einen Satz eintragen.

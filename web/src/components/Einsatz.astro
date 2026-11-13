@@ -1,0 +1,41 @@
+---
+import { Picture } from 'astro:assets';
+import care from '../assets/care.jpg';
+const facts = [
+  ['WET', 'Beständig gegen Desinfektionsmittel, Fließwasser und Scheuern'],
+  ['STRONG', 'Scheuerbeständig für Flure mit Betten- und Wagenverkehr'],
+  ['MONTAGE', 'Ohne Bohren, Reinigung mit üblichen Reinigern'],
+  ['REFERENZ', 'Betreutes Wohnen Köflach, 1.100 m²'],
+];
+const more = [
+  ['A', 'Bad ohne Abriss', 'Bestehende Fliesen werden überarbeitet statt herausgeschlagen. Für Hotels, Wellness und Wohnungsbestand.'],
+  ['B', 'Fassade als Gesicht', 'Gewerbe, Industrie, Stadt- und Regionalmarketing. Die Fassade ist immer Ausdruck: von einer Botschaft oder von gar nichts.'],
+  ['C', 'Bestand und Denkmal', 'Kein Bohrloch im historischen Mauerwerk. Was erhaltenswert war, bleibt darunter unversehrt.'],
+];
+---
+<section class="wrap sec" id="einsatz" aria-labelledby="einsatz-title">
+  <p class="label">02 — Einsatz</p>
+  <div class="einsatz__grid">
+    <figure class="figure-dark">
+      <Picture src={care} formats={['avif', 'webp']} widths={[480, 800, 1200]} sizes="(min-width: 1024px) 45vw, 100vw" alt="Illustration: Patientin in einem Klinikzimmer mit großem Wandbild" />
+      <figcaption>Illustration aus dem Manifest · [PROJEKTFOTO]</figcaption>
+    </figure>
+    <div>
+      <h2 class="h-sec" id="einsatz-title">Pflege und Klinik: Kunst jenseits Fürsorge.</h2>
+      <p class="lead einsatz__text">An Orten, in denen Menschen wider Willen leben, ist das Schöne notwendiger denn je. Ein Flur wird zur Orientierung, ein Bad zum Ort der Ruhe, ein Aufenthaltsraum zum Stück Zuhause.</p>
+      <ul class="facts">
+        {facts.map(([k, v]) => <li><span>{k}</span><span>{v}</span></li>)}
+      </ul>
+      <a class="text-link" href="#kontakt" style="margin-top:20px">Projekt für eine Einrichtung anfragen</a>
+    </div>
+  </div>
+  <div class="einsatz__more">
+    {more.map(([k, h, t]) => (
+      <div>
+        <p class="label label--s">{k}</p>
+        <h3 class="h-item">{h}</h3>
+        <p class="lead">{t}</p>
+      </div>
+    ))}
+  </div>
+</section>

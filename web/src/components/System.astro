@@ -1,0 +1,71 @@
+---
+import LayerGraphic from './LayerGraphic.astro';
+import { products } from '../data/content';
+const n = products.length;
+const pad = (i: number) => String(i + 1).padStart(2, '0');
+---
+<section class="system" id="system" data-system aria-labelledby="system-title">
+  <div class="wrap sec" style="padding-bottom:0">
+    <div class="sec-head">
+      <div>
+        <p class="label" data-reveal-label>01 — System</p>
+        <h2 class="h-sec" id="system-title" data-reveal-lines>Ein Verfahren, vier Träger.</h2>
+      </div>
+      <p class="lead" data-reveal-fade>Basis aller Produkte ist ein patentiertes Wandklebeverfahren. Der Bildträger wird vollflächig verklebt, das Mauerwerk bleibt unversehrt. Später lässt sich die Fläche spachteln, überstreichen oder neu beschichten.</p>
+    </div>
+  </div>
+
+  <div class="sys-pin" data-sys-pin>
+    <div class="wrap sys-wrap-stage">
+      <div class="sys-stage" data-sys-stage>
+        <LayerGraphic />
+
+        <div class="specs specs--list" data-specs aria-label="Produktübersicht" role="list">
+          {products.map((p, i) => (
+            <article class="spec" role="listitem" data-spec={p.id} aria-labelledby={`spec-${p.id}`}>
+              <p class="label label--s spec__idx" data-line>Träger {pad(i)} / {pad(n - 1)}</p>
+              <h3 class="spec__name" id={`spec-${p.id}`} data-line>{p.name}</h3>
+              {p.sub && <p class="spec__sub" data-line>{p.sub}</p>}
+              <dl class="spec__data">
+                <div data-line>
+                  <dt class="label label--s">Bildträger</dt>
+                  <dd>{p.traeger}</dd>
+                </div>
+                <div class="spec__bahn" data-line>
+                  <dt class="label label--s">Bahn max.</dt>
+                  <dd>{p.bahn} <small>cm</small></dd>
+                </div>
+                <div class="is-wide" data-line>
+                  <dt class="label label--s">Beständigkeit</dt>
+                  <dd>{p.bestaendigkeit}</dd>
+                </div>
+                <div data-line>
+                  <dt class="label label--s">Einsatz</dt>
+                  <dd>{p.einsatz}</dd>
+                </div>
+                <div data-line>
+                  <dt class="label label--s">Richtpreis</dt>
+                  <dd class="ph">{p.preis}</dd>
+                </div>
+              </dl>
+            </article>
+          ))}
+        </div>
+
+        <nav class="sys-rail" aria-label="Träger auswählen" data-sys-rail>
+          {products.map((p, i) => (
+            <button type="button" data-step={i}>
+              <span class="sys-rail__fill" aria-hidden="true"></span>
+              <span class="label label--s">{pad(i)}</span>
+              <span>{p.short}</span>
+            </button>
+          ))}
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-bottom:var(--sec-pad)">
+    <p class="sys-note">Technische Datenblätter und Prüfzeugnisse liegen dem Musterfächer bei.</p>
+  </div>
+</section>

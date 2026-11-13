@@ -1,0 +1,55 @@
+/* CoverCraft – Gestaltungsvariablen (BRIEF.md, Abschnitt 3) */
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/Geist-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/GeistMono-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Farben */
+  --c-dark: #07171A;          /* Dunkler Grund */
+  --c-petrol-dark: #0B2A2E;   /* Petrol dunkel (Flächen) */
+  --c-petrol: #0B5F63;        /* Links auf Hell */
+  --c-sage: #37665F;          /* Labels auf Hell */
+  --c-mint-light: #A9D6CB;    /* Labels auf Dunkel */
+  --c-mint: #D7F3E9;          /* Text auf Dunkel */
+  --c-paper: #F5F8F5;
+  --c-white: #FFFFFF;
+  --c-ink: #0B1D21;
+  --c-body: #2E4A4B;          /* Fließtext auf Hell */
+  --c-line: #C4D6D0;
+  --c-line-2: #D5E2DD;
+  --c-gold: #E6CF6A;          /* nur Hauptbutton, Schrittnummern, ein Schlusssatz */
+
+  /* Abgeleitete Töne aus reference.html */
+  --c-mist: #D9E8E3;          /* Hero-Fließtext */
+  --c-fog: #C6DAD4;           /* Fließtext auf Petrol */
+  --c-row-hover: #E4F1EC;     /* Zeilen-Hover (mint) */
+
+  /* Schrift */
+  --font-sans: 'Geist', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, Menlo, monospace;
+
+  /* Maße */
+  --radius: 2px;
+  --maxw: 1440px;
+  --gutter: clamp(20px, 5vw, 80px);
+  --sec-pad: clamp(64px, 8vw, 120px);
+  --nav-h: 100px;
+  --nav-h-compact: 68px;
+
+  /* Bewegung */
+  --ease-out: cubic-bezier(.2, .7, .2, 1);
+  --ease-inout: cubic-bezier(.65, 0, .35, 1);
+  --dur: .9s;
+}

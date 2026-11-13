@@ -1,0 +1,117 @@
+---
+/**
+ * Explosionszeichnung des Schichtaufbaus (Wand, Kleber, Träger, Druck) in isometrischer Ansicht.
+ * Grundzustand im Markup = auseinandergezogen, allgemeine Beschriftung (gilt ohne JS und auf Mobil).
+ * Die Scroll-Sequenz (scripts/motion/system.ts) setzt Zustände pro Träger.
+ */
+import { getImage } from 'astro:assets';
+import hero from '../assets/hero.jpg';
+import genius from '../assets/genius.jpg';
+import fuersorge from '../assets/fuersorge.jpg';
+import care from '../assets/care.jpg';
+
+const srcs = { hero, genius, fuersorge, care } as const;
+const prints = await Promise.all(
+  Object.entries(srcs).map(async ([key, src]) => ({
+    key,
+    url: (await getImage({ src, width: 720, format: 'webp', quality: 72 })).src,
+  })),
+);
+
+const S = 260; // Plattenmaß in lokalen Einheiten
+const C = 0.866; // cos 30°
+const ISO = `matrix(${C} 0.5 ${-C} 0.5 0 0)`;
+const X0 = 250; // Lage der Plattenmitte (oben) im Bild
+const corner = { l: [-C * S, S / 2], b: [0, S], r: [C * S, S / 2] }; // linke, untere, rechte Ecke
+const LABEL_X = 270;
+
+type Layer = { key: string; no: string; name: string; detail: string; y: number; t: number; side: [string, string] };
+// Reihenfolge = Zeichenreihenfolge (unten zuerst)
+const layers: Layer[] = [
+  { key: 'wand', no: '01', name: 'Wand', detail: 'Fassade, Innenwand, Nassbereich', y: 330, t: 26, side: ['#C4D6D0', '#A9C2BA'] },
+  { key: 'kleber', no: '02', name: 'Kleber', detail: 'Patentiertes Verfahren', y: 240, t: 3, side: ['#A9D6CB', '#8FC3B6'] },
+  { key: 'traeger', no: '03', name: 'Träger', detail: 'Mesh-Gewebe oder Fiberglas', y: 150, t: 5, side: ['#37665F', '#2A524C'] },
+  { key: 'druck', no: '04', name: 'Druck', detail: 'Motiv frei gestaltbar', y: 60, t: 3, side: ['#FFFFFF', '#E4ECE8'] },
+];
+
+const pts = (arr: number[][]) => arr.map((p) => p.join(',')).join(' ');
+const sideL = (t: number) => pts([corner.l, corner.b, [corner.b[0], corner.b[1] + t], [corner.l[0], corner.l[1] + t]]);
+const sideR = (t: number) => pts([corner.b, corner.r, [corner.r[0], corner.r[1] + t], [corner.b[0], corner.b[1] + t]]);
+
+// Maßlinie entlang der hinteren linken Kante der Druckebene (liegt im freien Raum oberhalb)
+const dimOff = 22;
+const mid = { x: C * -dimOff - C * (S / 2), y: 0.5 * -dimOff + 0.5 * (S / 2) };
+const dimText = { x: mid.x - 0.5 * 12, y: mid.y - 0.866 * 12 };
+---
+<figure class="sys-figure" data-sys-figure>
+  <svg class="sys-svg" viewBox="0 0 760 640" role="img" aria-labelledby="sys-svg-title" data-sys-svg>
+    <title id="sys-svg-title">Schichtaufbau: Wand, Kleber, Bildträger, Druck</title>
+    <defs>
+      <pattern id="p-wall" width="52" height="26" patternUnits="userSpaceOnUse">
+        <rect width="52" height="26" fill="#EDF3F0" />
+        <path d="M0 .5H52M0 13.5H52M.5 0V13M26.5 13V26" stroke="#9DB8B0" stroke-width="1" fill="none" />
+      </pattern>
+      <pattern id="p-glue" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="9" height="9" fill="#D7F3E9" />
+        <path d="M0 4.5H9" stroke="#37665F" stroke-opacity=".55" stroke-width="1.4" />
+      </pattern>
+      <pattern id="p-mesh" width="8" height="8" patternUnits="userSpaceOnUse">
+        <rect width="8" height="8" fill="#0B2A2E" />
+        <rect x="2.2" y="2.2" width="3.6" height="3.6" fill="#A9D6CB" fill-opacity=".55" />
+      </pattern>
+      <pattern id="p-linen" width="6" height="6" patternUnits="userSpaceOnUse">
+        <rect width="6" height="6" fill="#F5F8F5" />
+        <path d="M0 1.5H6" stroke="#9DB8B0" stroke-width="1.1" />
+        <path d="M0 4.5H6" stroke="#C4D6D0" stroke-width=".9" />
+        <path d="M1.5 0V6" stroke="#B5CBC4" stroke-width=".7" />
+        <path d="M4.5 0V6" stroke="#D5E2DD" stroke-width=".7" />
+      </pattern>
+      <clipPath id="clip-plate"><rect width={S} height={S} /></clipPath>
+    </defs>
+
+    {layers.map((L) => (
+      <g transform={`translate(${X0} ${L.y})`}>
+        <g class="layer" data-layer={L.key}>
+          <polygon points={sideL(L.t)} fill={L.side[0]} class="face" />
+          <polygon points={sideR(L.t)} fill={L.side[1]} class="face" />
+          <g transform={ISO}>
+            {L.key === 'wand' && <rect width={S} height={S} fill="url(#p-wall)" />}
+            {L.key === 'kleber' && <rect width={S} height={S} fill="url(#p-glue)" />}
+            {L.key === 'traeger' && (
+              <>
+                <rect width={S} height={S} fill="url(#p-linen)" data-carrier="linen" />
+                <rect width={S} height={S} fill="url(#p-mesh)" data-carrier="mesh" />
+              </>
+            )}
+            {L.key === 'druck' && (
+              <g clip-path="url(#clip-plate)">
+                <rect width={S} height={S} fill="#FFFFFF" />
+                {prints.map((p, i) => (
+                  <image href={p.url} width={S} height={S} preserveAspectRatio="xMidYMid slice" data-print={p.key} opacity={i === 0 ? 1 : 0} />
+                ))}
+              </g>
+            )}
+            <rect width={S} height={S} class="edge" />
+            {L.key === 'druck' && (
+              <g class="dim" data-dim>
+                <path d={`M${-dimOff} 0V${S}M${-dimOff - 6} 0H${-dimOff + 6}M${-dimOff - 6} ${S}H${-dimOff + 6}`} />
+              </g>
+            )}
+          </g>
+          {L.key === 'druck' && (
+            <text class="dim-text" x={dimText.x} y={dimText.y} text-anchor="middle" transform={`rotate(-30 ${dimText.x} ${dimText.y})`} data-dim-text>
+              BAHN BIS <tspan data-dim-val>500</tspan> CM
+            </text>
+          )}
+          <g class="lbl" data-label>
+            <circle cx={corner.r[0]} cy={corner.r[1]} r="2.5" fill="#0B1D21" />
+            <line class="leader" x1={corner.r[0]} y1={corner.r[1]} x2={LABEL_X - 10} y2={corner.r[1]} pathLength="1" data-leader />
+            <text class="lbl-no" x={LABEL_X} y={corner.r[1] - 6}>{L.no} — {L.name}</text>
+            <text class="lbl-detail" x={LABEL_X} y={corner.r[1] + 16} data-detail={L.key}>{L.detail}</text>
+          </g>
+        </g>
+      </g>
+    ))}
+  </svg>
+  <figcaption class="label label--s">Schema, nicht maßstäblich · Motive: Illustrationen aus dem Manifest</figcaption>
+</figure>

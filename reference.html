@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>CoverCraft – Startseite</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#07171A}
+html{scroll-behavior:smooth}
+a{color:#0B5F63}a:hover{color:#07171A}
+.cc-nav a{color:#D7F3E9;text-decoration:none}.cc-nav a:hover{color:#FFFFFF}
+.cc-dark a{color:#D7F3E9}.cc-dark a:hover{color:#FFFFFF}
+.cc-card img{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.cc-card:hover img{transform:scale(1.04)}
+.cc-row{transition:background .25s}
+.cc-row:hover{background:#E4F1EC}
+@keyframes ccDrift{from{transform:scale(1.02) translate3d(0,0,0)}to{transform:scale(1.1) translate3d(-1.5%,-1%,0)}}
+.cc-drift{animation:ccDrift 28s ease-in-out infinite alternate}
+@keyframes ccRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.cc-rise{animation:ccRise 1s cubic-bezier(.2,.7,.2,1) both}
+.cc-rise-2{animation:ccRise 1s .15s cubic-bezier(.2,.7,.2,1) both}
+.cc-rise-3{animation:ccRise 1s .3s cubic-bezier(.2,.7,.2,1) both}
+@media (prefers-reduced-motion:reduce){.cc-drift,.cc-rise,.cc-rise-2,.cc-rise-3{animation:none}}
+input,textarea,select{font:inherit}
+input:focus,textarea:focus,select:focus,a:focus-visible{outline:2px solid #E6CF6A;outline-offset:2px}
+</style>
+</head>
+<body>
+
+<div style="font-family: 'Geist', 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #0B1D21; background: #F5F8F5; font-weight: 300; font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased">
+
+<!-- HERO -->
+<header class="cc-dark" style="position: relative; background: #07171A; color: #F5F8F5; overflow: hidden; min-height: 860px; display: flex; flex-direction: column">
+<img class="cc-drift" src="assets/hero.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 30% 50%">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,23,26,0.72) 0%, rgba(7,23,26,0.35) 30%, rgba(7,23,26,0.78) 72%, #07171A 100%)"></div>
+
+<nav class="cc-nav" aria-label="Hauptnavigation" style="position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; padding: 28px clamp(20px, 5vw, 80px)">
+<a href="#top" style="display: flex; align-items: baseline; gap: 14px; text-decoration: none">
+<span style="font-size: 26px; font-weight: 400; letter-spacing: -0.01em; color: #FFFFFF">CoverCraft</span>
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #A9D6CB">Surface Design Engineering</span>
+</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 30px; font-size: 15px; font-weight: 400">
+<a href="#system" style="padding: 12px 0">System</a>
+<a href="#einsatz" style="padding: 12px 0">Einsatz</a>
+<a href="#referenzen" style="padding: 12px 0">Referenzen</a>
+<a href="#humaneco" style="padding: 12px 0">HumanEco</a>
+<a href="#kontakt" style="padding: 12px 20px; border: 1px solid rgba(215,243,233,0.55); border-radius: 2px">Musterfächer anfordern</a>
+</div>
+</nav>
+
+<div id="top" style="position: relative; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; padding: 40px clamp(20px, 5vw, 80px) 0; max-width: 1440px; width: 100%; box-sizing: border-box; margin: 0 auto">
+<div class="cc-rise" style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #A9D6CB; margin-bottom: 28px">Wand · Boden · Fassade</div>
+<h1 class="cc-rise-2" style="margin: 0; font-weight: 200; font-size: clamp(44px, 8.2vw, 128px); line-height: 0.98; letter-spacing: -0.035em; max-width: 12ch; text-wrap: balance">Wände dürfen selbst das Bild sein.</h1>
+
+<div class="cc-rise-3" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px 64px; margin-top: 44px">
+<p style="margin: 0; max-width: 520px; font-size: clamp(17px, 1.45vw, 20px); line-height: 1.5; color: #D9E8E3">CoverCraft bringt Bildkunst dauerhaft auf Fassade, Innenwand und Nassraum. Gedruckt in einer Bahn, verklebt mit einem patentierten Verfahren. Ohne Bohren, ohne Abriss.</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px">
+<a href="#kontakt" style="display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 26px; background: #E6CF6A; color: #07171A; text-decoration: none; font-weight: 500; font-size: 16px; border-radius: 2px">Technischen Musterfächer anfordern
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9h12M10 4l5 5-5 5"></path></svg>
+</a>
+<a href="#system" style="padding: 14px 0; font-size: 16px; font-weight: 400; text-underline-offset: 6px">System ansehen</a>
+</div>
+</div>
+
+<!-- Maßlinie -->
+<div aria-hidden="true" style="display: flex; align-items: center; gap: 14px; margin-top: 56px; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.12em; color: #A9D6CB">
+<span style="width: 1px; height: 14px; background: #A9D6CB"></span>
+<span style="flex: 1; height: 1px; background: rgba(169,214,203,0.5)"></span>
+<span>MAX. BAHNBREITE 500 CM · EINE BAHN, KEINE FUGE</span>
+<span style="flex: 1; height: 1px; background: rgba(169,214,203,0.5)"></span>
+<span style="width: 1px; height: 14px; background: #A9D6CB"></span>
+</div>
+
+<dl style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 0; margin: 28px 0 0; border-top: 1px solid rgba(215,243,233,0.22)">
+<div style="padding: 24px 24px 34px 0; border-right: 1px solid rgba(215,243,233,0.12)">
+<dt style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #A9D6CB">Brandklasse Außentapete</dt>
+<dd style="margin: 10px 0 0; font-size: 30px; font-weight: 300; letter-spacing: -0.02em">B-s1, d0 <span style="font-size: 14px; color: #A9D6CB; letter-spacing: 0">IBS Linz</span></dd>
+</div>
+<div style="padding: 24px 24px 34px 24px; border-right: 1px solid rgba(215,243,233,0.12)">
+<dt style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #A9D6CB">Bahnbreite</dt>
+<dd style="margin: 10px 0 0; font-size: 30px; font-weight: 300; letter-spacing: -0.02em">500 cm <span style="font-size: 14px; color: #A9D6CB; letter-spacing: 0">außen · 300 cm innen</span></dd>
+</div>
+<div style="padding: 24px 24px 34px 24px; border-right: 1px solid rgba(215,243,233,0.12)">
+<dt style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #A9D6CB">Verfahren</dt>
+<dd style="margin: 10px 0 0; font-size: 30px; font-weight: 300; letter-spacing: -0.02em">seit 2009 <span style="font-size: 14px; color: #A9D6CB; letter-spacing: 0">patentiert</span></dd>
+</div>
+<div style="padding: 24px 0 34px 24px">
+<dt style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #A9D6CB">Dokumentierte Projekte</dt>
+<dd style="margin: 10px 0 0; font-size: 30px; font-weight: 300; letter-spacing: -0.02em">40 <span style="font-size: 14px; color: #A9D6CB; letter-spacing: 0">von 2 bis 1.100 m²</span></dd>
+</div>
+</dl>
+</div>
+</header>
+
+<!-- STATEMENT -->
+<section style="padding: clamp(72px, 10vw, 150px) clamp(20px, 5vw, 80px); max-width: 1440px; margin: 0 auto; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; gap: 32px 80px; align-items: flex-start">
+<div style="flex: 0 0 220px; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #37665F">Haltung</div>
+<div style="flex: 1 1 520px; min-width: 0">
+<p style="margin: 0; font-size: clamp(28px, 3.6vw, 54px); line-height: 1.14; letter-spacing: -0.025em; font-weight: 200; text-wrap: balance">Wand, Boden, Fassade sind Orte des Geschehens. Die Schnittstelle zwischen dem Einzelnen und seiner Wahrnehmung der Welt.</p>
+<p style="margin: 36px 0 0; max-width: 620px; color: #2E4A4B">Du reagierst immer auf sie, du merkst es nur selten. Wir gestalten Oberflächen so, dass diese Reaktion gewollt ist: als Bild, als Muster, als Erinnerung, als Botschaft eines Ortes.</p>
+</div>
+</div>
+</section>
+
+<!-- SYSTEM -->
+<section id="system" style="background: #FFFFFF; border-top: 1px solid #D5E2DD; border-bottom: 1px solid #D5E2DD">
+<div style="padding: clamp(64px, 8vw, 120px) clamp(20px, 5vw, 80px); max-width: 1440px; margin: 0 auto; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 64px; margin-bottom: 56px">
+<div>
+<div style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #37665F; margin-bottom: 18px">01 — System</div>
+<h2 style="margin: 0; font-weight: 200; font-size: clamp(34px, 4.6vw, 68px); line-height: 1.02; letter-spacing: -0.03em">Ein Verfahren, vier Träger.</h2>
+</div>
+<p style="margin: 0; max-width: 460px; color: #2E4A4B">Basis aller Produkte ist ein patentiertes Wandklebeverfahren. Der Bildträger wird vollflächig verklebt, das Mauerwerk bleibt unversehrt. Später lässt sich die Fläche spachteln, überstreichen oder neu beschichten.</p>
+</div>
+
+<div style="overflow-x: auto">
+<div role="table" aria-label="Produktübersicht" style="min-width: 980px; border-top: 1px solid #0B1D21">
+<div role="row" style="display: grid; grid-template-columns: 2.2fr 1.5fr 1fr 2.6fr 1.6fr 1.2fr; gap: 24px; padding: 14px 0; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #37665F; border-bottom: 1px solid #D5E2DD">
+<span role="columnheader">Produkt</span><span role="columnheader">Bildträger</span><span role="columnheader">Bahn max.</span><span role="columnheader">Beständigkeit</span><span role="columnheader">Einsatz</span><span role="columnheader" style="text-align: right">Richtpreis</span>
+</div>
+
+<div role="row" class="cc-row" style="display: grid; grid-template-columns: 2.2fr 1.5fr 1fr 2.6fr 1.6fr 1.2fr; gap: 24px; padding: 30px 0; align-items: baseline; border-bottom: 1px solid #D5E2DD">
+<span role="cell" style="font-size: 28px; font-weight: 300; letter-spacing: -0.02em">Fassadenbild <span style="display: block; font-size: 14px; color: #37665F; letter-spacing: 0; margin-top: 4px">Die Außentapete</span></span>
+<span role="cell">Mesh-Gewebe</span>
+<span role="cell" style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 15px">500 cm</span>
+<span role="cell">Witterung, Farbechtheit wie eine hochwertige Fassadenfarbe. Brandklasse B-s1, d0.</span>
+<span role="cell">Fassade, Außenmauer, WDVS</span>
+<span role="cell" style="text-align: right; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 14px; color: #37665F">[PREIS / m²]</span>
+</div>
+
+<div role="row" class="cc-row" style="display: grid; grid-template-columns: 2.2fr 1.5fr 1fr 2.6fr 1.6fr 1.2fr; gap: 24px; padding: 30px 0; align-items: baseline; border-bottom: 1px solid #D5E2DD">
+<span role="cell" style="font-size: 28px; font-weight: 300; letter-spacing: -0.02em">WandSchmuck Interior</span>
+<span role="cell">Fiberglas in Leinenoptik</span>
+<span role="cell" style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 15px">300 cm</span>
+<span role="cell">Lichtbeständig, nass wischbar, wieder ablösbar.</span>
+<span role="cell">Wohnen, Büro, Empfang</span>
+<span role="cell" style="text-align: right; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 14px; color: #37665F">[PREIS / m²]</span>
+</div>
+
+<div role="row" class="cc-row" style="display: grid; grid-template-columns: 2.2fr 1.5fr 1fr 2.6fr 1.6fr 1.2fr; gap: 24px; padding: 30px 0; align-items: baseline; border-bottom: 1px solid #D5E2DD">
+<span role="cell" style="font-size: 28px; font-weight: 300; letter-spacing: -0.02em">WandSchmuck Strong</span>
+<span role="cell">Fiberglas in Leinenoptik</span>
+<span role="cell" style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 15px">300 cm</span>
+<span role="cell">Hoch lichtbeständig, scheuerbeständig.</span>
+<span role="cell">Flure, Treppenhäuser, stark beanspruchte Wände</span>
+<span role="cell" style="text-align: right; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 14px; color: #37665F">[PREIS / m²]</span>
+</div>
+
+<div role="row" class="cc-row" style="display: grid; grid-template-columns: 2.2fr 1.5fr 1fr 2.6fr 1.6fr 1.2fr; gap: 24px; padding: 30px 0; align-items: baseline; border-bottom: 1px solid #0B1D21">
+<span role="cell" style="font-size: 28px; font-weight: 300; letter-spacing: -0.02em">WandSchmuck Wet</span>
+<span role="cell">Fiberglas in Leinenoptik</span>
+<span role="cell" style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 15px">300 cm</span>
+<span role="cell">Fließwasser, Desinfektionsmittel, Scheuern, Licht.</span>
+<span role="cell">Dusche, Wanne, Küchenrückwand</span>
+<span role="cell" style="text-align: right; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 14px; color: #37665F">[PREIS / m²]</span>
+</div>
+</div>
+</div>
+<p style="margin: 22px 0 0; font-size: 14px; color: #37665F">Technische Datenblätter und Prüfzeugnisse liegen dem Musterfächer bei.</p>
+</div>
+</section>
+
+<!-- EINSATZ -->
+<section id="einsatz" style="padding: clamp(64px, 8vw, 120px) clamp(20px, 5vw, 80px); max-width: 1440px; margin: 0 auto; box-sizing: border-box">
+<div style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #37665F; margin-bottom: 18px">02 — Einsatz</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 40px 72px; align-items: center">
+<figure style="margin: 0; position: relative; overflow: hidden; border-radius: 2px; background: #0B1D21">
+<img src="assets/care.jpg" alt="Illustration: Patientin in einem Klinikzimmer mit großem Wandbild" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover">
+<figcaption style="position: absolute; left: 16px; bottom: 14px; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #FFFFFF; background: rgba(7,23,26,0.72); padding: 6px 10px">Illustration aus dem Manifest · [PROJEKTFOTO]</figcaption>
+</figure>
+<div>
+<h2 style="margin: 0; font-weight: 200; font-size: clamp(34px, 4.6vw, 68px); line-height: 1.02; letter-spacing: -0.03em">Pflege und Klinik: Kunst jenseits Fürsorge.</h2>
+<p style="margin: 28px 0 0; max-width: 540px; color: #2E4A4B">An Orten, in denen Menschen wider Willen leben, ist das Schöne notwendiger denn je. Ein Flur wird zur Orientierung, ein Bad zum Ort der Ruhe, ein Aufenthaltsraum zum Stück Zuhause.</p>
+<ul style="list-style: none; margin: 36px 0 0; padding: 0; display: flex; flex-direction: column; gap: 0; border-top: 1px solid #C4D6D0">
+<li style="display: flex; gap: 20px; padding: 16px 0; border-bottom: 1px solid #C4D6D0"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #37665F; min-width: 64px; padding-top: 4px">WET</span><span>Beständig gegen Desinfektionsmittel, Fließwasser und Scheuern</span></li>
+<li style="display: flex; gap: 20px; padding: 16px 0; border-bottom: 1px solid #C4D6D0"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #37665F; min-width: 64px; padding-top: 4px">STRONG</span><span>Scheuerbeständig für Flure mit Betten- und Wagenverkehr</span></li>
+<li style="display: flex; gap: 20px; padding: 16px 0; border-bottom: 1px solid #C4D6D0"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #37665F; min-width: 64px; padding-top: 4px">MONTAGE</span><span>Ohne Bohren, Reinigung mit üblichen Reinigern</span></li>
+<li style="display: flex; gap: 20px; padding: 16px 0; border-bottom: 1px solid #C4D6D0"><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: #37665F; min-width: 64px; padding-top: 4px">REFERENZ</span><span>Betreutes Wohnen Köflach, 1.100 m²</span></li>
+</ul>
+<a href="#kontakt" style="display: inline-block; margin-top: 32px; padding: 12px 0; font-weight: 400; text-underline-offset: 6px">Projekt für eine Einrichtung anfragen</a>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 0; margin-top: clamp(56px, 7vw, 96px); border-top: 1px solid #0B1D21">
+<div style="padding: 28px 32px 8px 0">
+<div style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #37665F">A</div>
+<h3 style="margin: 14px 0 10px; font-size: 26px; font-weight: 300; letter-spacing: -0.02em">Bad ohne Abriss</h3>
+<p style="margin: 0; color: #2E4A4B">Bestehende Fliesen werden überarbeitet statt herausgeschlagen. Für Hotels, Wellness und Wohnungsbestand.</p>
+</div>
+<div style="padding: 28px 32px 8px 0">
+<div style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #37665F">B</div>
+<h3 style="margin: 14px 0 10px; font-size: 26px; font-weight: 300; letter-spacing: -0.02em">Fassade als Gesicht</h3>
+<p style="margin: 0; color: #2E4A4B">Gewerbe, Industrie, Stadt- und Regionalmarketing. Die Fassade ist immer Ausdruck: von einer Botschaft oder von gar nichts.</p>
+</div>
+<div style="padding: 28px 0 8px 0">
+<div style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #37665F">C</div>
+<h3 style="margin: 14px 0 10px; font-size: 26px; font-weight: 300; letter-spacing: -0.02em">Bestand und Denkmal</h3>
+<p style="margin: 0; color: #2E4A4B">Kein Bohrloch im historischen Mauerwerk. Was erhaltenswert war, bleibt darunter unversehrt.</p>
+</div>
+</div>
+</section>
+
+<!-- ABLAUF -->
+<section class="cc-dark" style="background: #0B2A2E; color: #F5F8F5">
+<div style="padding: clamp(64px, 8vw, 120px) clamp(20px, 5vw, 80px); max-width: 1440px; margin: 0 auto; box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 48px 80px; align-items: start">
+<div>
+<div style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #A9D6CB; margin-bottom: 18px">03 — Ablauf</div>
+<h2 style="margin: 0; font-weight: 200; font-size: clamp(34px, 4.6vw, 68px); line-height: 1.02; letter-spacing: -0.03em">Erst den Ort lesen. Dann die Wand.</h2>
+<img src="assets/process.jpg" alt="Illustration: Hand skizziert eine begrünte Wandfläche mit Materialnotizen" style="display: block; width: 100%; margin-top: 44px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 2px">
+</div>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(215,243,233,0.3)">
+<li style="display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 28px 0; border-bottom: 1px solid rgba(215,243,233,0.3)">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #E6CF6A; padding-top: 8px">01</span>
+<div><h3 style="margin: 0 0 8px; font-size: 26px; font-weight: 300; letter-spacing: -0.02em">Ort</h3><p style="margin: 0; color: #C6DAD4">Maße, Untergrund, Licht, Nutzung. Jeder Ort erzählt seine Geschichte, bevor sie erzählt wird.</p></div>
+</li>
+<li style="display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 28px 0; border-bottom: 1px solid rgba(215,243,233,0.3)">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #E6CF6A; padding-top: 8px">02</span>
+<div><h3 style="margin: 0 0 8px; font-size: 26px; font-weight: 300; letter-spacing: -0.02em">Motiv</h3><p style="margin: 0; color: #C6DAD4">Eigenes Bild, Entwurf unserer Grafikpartner oder ein Motiv aus dem Bestand. Frei gestaltbar bis zur letzten Kante.</p></div>
+</li>
+<li style="display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 28px 0; border-bottom: 1px solid rgba(215,243,233,0.3)">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #E6CF6A; padding-top: 8px">03</span>
+<div><h3 style="margin: 0 0 8px; font-size: 26px; font-weight: 300; letter-spacing: -0.02em">Druck</h3><p style="margin: 0; color: #C6DAD4">In einer Bahn bis 500 cm Breite außen und 300 cm innen, auf Mesh oder Fiberglas.</p></div>
+</li>
+<li style="display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 28px 0; border-bottom: 1px solid rgba(215,243,233,0.3)">
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 13px; color: #E6CF6A; padding-top: 8px">04</span>
+<div><h3 style="margin: 0 0 8px; font-size: 26px; font-weight: 300; letter-spacing: -0.02em">Verklebung</h3><p style="margin: 0; color: #C6DAD4">Durch geschulte Maler- und Partnerbetriebe in Deutschland und Österreich. [MONTAGEZEIT PRO m²]</p></div>
+</li>
+</ol>
+</div>
+</section>
+
+<!-- REFERENZEN -->
+<section id="referenzen" style="padding: clamp(64px, 8vw, 120px) clamp(20px, 5vw, 80px); max-width: 1440px; margin: 0 auto; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 64px; margin-bottom: 48px">
+<div>
+<div style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #37665F; margin-bottom: 18px">04 — Referenzen</div>
+<h2 style="margin: 0; font-weight: 200; font-size: clamp(34px, 4.6vw, 68px); line-height: 1.02; letter-spacing: -0.03em">Gemessen in Quadratmetern.</h2>
+</div>
+<p style="margin: 0; max-width: 420px; color: #2E4A4B">Eine Auswahl aus 40 dokumentierten Projekten, vom Goldschatz mit 2 m² bis zur Wohnanlage.</p>
+</div>
+
+<ul style="list-style: none; margin: 0; padding: 0; border-top: 1px solid #0B1D21">
+<li class="cc-row" style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 32px; padding: 22px 0; border-bottom: 1px solid #C4D6D0"><span style="font-size: clamp(22px, 2.6vw, 38px); font-weight: 300; letter-spacing: -0.02em">Betreutes Wohnen <span style="font-size: 15px; color: #37665F; letter-spacing: 0">Köflach</span></span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: clamp(18px, 2vw, 28px)">1.100 m²</span></li>
+<li class="cc-row" style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 32px; padding: 22px 0; border-bottom: 1px solid #C4D6D0"><span style="font-size: clamp(22px, 2.6vw, 38px); font-weight: 300; letter-spacing: -0.02em">MGI Steuerberatungskanzlei</span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: clamp(18px, 2vw, 28px)">400 m²</span></li>
+<li class="cc-row" style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 32px; padding: 22px 0; border-bottom: 1px solid #C4D6D0"><span style="font-size: clamp(22px, 2.6vw, 38px); font-weight: 300; letter-spacing: -0.02em">Pizza, Baguette &amp; Blech <span style="font-size: 15px; color: #37665F; letter-spacing: 0">Ried im Innkreis</span></span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: clamp(18px, 2vw, 28px)">360 m²</span></li>
+<li class="cc-row" style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 32px; padding: 22px 0; border-bottom: 1px solid #C4D6D0"><span style="font-size: clamp(22px, 2.6vw, 38px); font-weight: 300; letter-spacing: -0.02em">Synthesa Arena <span style="font-size: 15px; color: #37665F; letter-spacing: 0">Perg · 2014</span></span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: clamp(18px, 2vw, 28px)">300 m²</span></li>
+<li class="cc-row" style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 32px; padding: 22px 0; border-bottom: 1px solid #C4D6D0"><span style="font-size: clamp(22px, 2.6vw, 38px); font-weight: 300; letter-spacing: -0.02em">HAILife <span style="font-size: 15px; color: #37665F; letter-spacing: 0">Nußbach · 2009</span></span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: clamp(18px, 2vw, 28px)">171 m²</span></li>
+<li class="cc-row" style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 32px; padding: 22px 0; border-bottom: 1px solid #C4D6D0"><span style="font-size: clamp(22px, 2.6vw, 38px); font-weight: 300; letter-spacing: -0.02em">Maximarkt <span style="font-size: 15px; color: #37665F; letter-spacing: 0">Anif</span></span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: clamp(18px, 2vw, 28px)">160 m²</span></li>
+<li class="cc-row" style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 32px; padding: 22px 0; border-bottom: 1px solid #0B1D21"><span style="font-size: clamp(22px, 2.6vw, 38px); font-weight: 300; letter-spacing: -0.02em">SalzburgerMilch <span style="font-size: 15px; color: #37665F; letter-spacing: 0">Salzburg · 2011</span></span><span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: clamp(18px, 2vw, 28px)">110 m²</span></li>
+</ul>
+<p style="margin: 22px 0 0; font-size: 14px; color: #37665F">[PROJEKTFOTOS UND ZWEI BIS DREI AKTUELLE REFERENZEN AB 2023 ERGÄNZEN]</p>
+</section>
+
+<!-- HUMANECO -->
+<section id="humaneco" style="background: #FFFFFF; border-top: 1px solid #D5E2DD">
+<div style="padding: clamp(64px, 8vw, 120px) clamp(20px, 5vw, 80px); max-width: 1440px; margin: 0 auto; box-sizing: border-box">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(360px, 100%), 1fr)); gap: 32px 80px; align-items: end; margin-bottom: 64px">
+<div>
+<div style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #37665F; margin-bottom: 18px">05 — Manifest</div>
+<h2 style="margin: 0; font-weight: 200; font-size: clamp(52px, 9vw, 140px); line-height: 0.92; letter-spacing: -0.04em">HumanEco</h2>
+<div style="margin-top: 14px; font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #0B5F63">in urbanen Habitaten</div>
+</div>
+<div>
+<p style="margin: 0; max-width: 520px; color: #2E4A4B">Human und Eco. Im Eco steckt das griechische oikos: das Haus, der Ort, an den der Mensch gehört. Unser Manifest kreativer Perspektiven fragt, wie Orte zu einem Zuhause werden. Oder eben nicht.</p>
+<a href="#kontakt" style="display: inline-block; margin-top: 20px; padding: 12px 0; font-weight: 400; text-underline-offset: 6px">Manifest als PDF anfordern, 58 Seiten</a>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 56px 40px">
+
+<a class="cc-card" href="#kontakt" style="display: flex; flex-direction: column; gap: 18px; text-decoration: none; color: #0B1D21">
+<span style="display: block; overflow: hidden; aspect-ratio: 4 / 3; background: #FFFFFF"><img src="assets/materie.jpg" alt="Illustration: Hand berührt eine Holzoberfläche" style="display: block; width: 100%; height: 100%; object-fit: contain"></span>
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #37665F">KAPITEL 01</span>
+<span style="font-size: 30px; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1">Materie ist Material</span>
+<span style="color: #2E4A4B">Um wieder glauben zu können, brauchen wir die Berührung.</span>
+</a>
+
+<a class="cc-card" href="#kontakt" style="display: flex; flex-direction: column; gap: 18px; text-decoration: none; color: #0B1D21">
+<span style="display: block; overflow: hidden; aspect-ratio: 4 / 3; background: #0B1D21"><img src="assets/fuersorge.jpg" alt="Illustration: lichtdurchfluteter Gewölbegang mit Wandmalerei" style="display: block; width: 100%; height: 100%; object-fit: cover"></span>
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #37665F">KAPITEL 04</span>
+<span style="font-size: 30px; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1">Kunst jenseits Fürsorge</span>
+<span style="color: #2E4A4B">Ein Ort ist Verortung und niemals neutral.</span>
+</a>
+
+<a class="cc-card" href="#kontakt" style="display: flex; flex-direction: column; gap: 18px; text-decoration: none; color: #0B1D21">
+<span style="display: block; overflow: hidden; aspect-ratio: 4 / 3; background: #0B1D21"><img src="assets/genius.jpg" alt="Illustration: runder Empfangsraum mit Lichtkuppel" style="display: block; width: 100%; height: 100%; object-fit: cover"></span>
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #37665F">KAPITEL 05</span>
+<span style="font-size: 30px; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1">Genius Loci</span>
+<span style="color: #2E4A4B">Die Energie eines Ortes entspricht dem Ton A in der Musik.</span>
+</a>
+
+<a class="cc-card" href="#kontakt" style="display: flex; flex-direction: column; gap: 18px; text-decoration: none; color: #0B1D21">
+<span style="display: block; overflow: hidden; aspect-ratio: 4 / 3; background: #0B1D21"><img src="assets/turm.jpg" alt="Illustration: Eiffelturm bei Nacht aus der Untersicht" style="display: block; width: 100%; height: 100%; object-fit: cover"></span>
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #37665F">KAPITEL 10</span>
+<span style="font-size: 30px; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1">Der Turm gegen die Zeit</span>
+<span style="color: #2E4A4B">Manchmal bleiben Gäste, weil man sie nicht mehr gehen lassen will.</span>
+</a>
+
+<a class="cc-card" href="#kontakt" style="display: flex; flex-direction: column; gap: 18px; text-decoration: none; color: #0B1D21">
+<span style="display: block; overflow: hidden; aspect-ratio: 4 / 3; background: #0B1D21"><img src="assets/serendip.jpg" alt="Illustration: Reiter auf einem gelben, sich verzweigenden Weg" style="display: block; width: 100%; height: 100%; object-fit: cover"></span>
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #37665F">KAPITEL 11</span>
+<span style="font-size: 30px; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1">Serendipität</span>
+<span style="color: #2E4A4B">Gerade durch die Risse dringt das Licht ein.</span>
+</a>
+
+<a class="cc-card" href="#kontakt" style="display: flex; flex-direction: column; gap: 18px; text-decoration: none; color: #0B1D21">
+<span style="display: block; overflow: hidden; aspect-ratio: 4 / 3; background: #FFFFFF"><img src="assets/ornament.jpg" alt="Illustration: ornamentaler Bogengang mit leuchtendem Boden" style="display: block; width: 100%; height: 100%; object-fit: contain"></span>
+<span style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #37665F">KAPITEL 13</span>
+<span style="font-size: 30px; font-weight: 300; letter-spacing: -0.02em; line-height: 1.1">Ornament oder Verbrechen?</span>
+<span style="color: #2E4A4B">Ornament ist nie ein Verbrechen, wenn es zu jemandem gehört.</span>
+</a>
+
+</div>
+</div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt" class="cc-dark" style="position: relative; background: #07171A; color: #F5F8F5; overflow: hidden">
+<img src="assets/halle.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.38">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,23,26,0.92) 0%, rgba(7,23,26,0.7) 55%, rgba(7,23,26,0.88) 100%)"></div>
+<div style="position: relative; padding: clamp(72px, 9vw, 140px) clamp(20px, 5vw, 80px); max-width: 1440px; margin: 0 auto; box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); gap: 56px 96px; align-items: start">
+<div>
+<div style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #A9D6CB; margin-bottom: 24px">Schlusswort der Wände</div>
+<p style="margin: 0; font-weight: 200; font-size: clamp(34px, 4.8vw, 72px); line-height: 1.04; letter-spacing: -0.03em">Wir sind da, auch morgen noch. Unter deinen Schritten. Unter deinen Blicken.</p>
+<p style="margin: 28px 0 0; font-size: clamp(22px, 2.4vw, 32px); font-weight: 300; color: #E6CF6A">Immer. Versprochen.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 24px 40px; margin-top: 64px; padding-top: 28px; border-top: 1px solid rgba(215,243,233,0.3); font-size: 15px">
+<div><div style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #A9D6CB; margin-bottom: 8px">DEUTSCHLAND</div>R.C. Salih Atik<br>Florstraße 39, 13187 Berlin<br>[TELEFON] · [E-MAIL]</div>
+<div><div style="font-family: 'Geist Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: #A9D6CB; margin-bottom: 8px">ÖSTERREICH · TECHNIK</div>Mag. Astrid Schmuck-Ploner<br>[ADRESSE]<br>[TELEFON] · [E-MAIL]</div>
+</div>
+</div>
+
+<form aria-label="Musterfächer anfordern" style="display: flex; flex-direction: column; gap: 22px; background: rgba(245,248,245,0.06); border: 1px solid rgba(215,243,233,0.28); padding: clamp(24px, 3vw, 40px); border-radius: 2px; backdrop-filter: blur(6px)">
+<h2 style="margin: 0 0 4px; font-size: 28px; font-weight: 300; letter-spacing: -0.02em">Technischen Musterfächer anfordern</h2>
+<p style="margin: 0; font-size: 15px; color: #C6DAD4">Alle vier Träger zum Anfassen, mit Datenblättern und Prüfzeugnissen.</p>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: #A9D6CB">Name
+<input type="text" name="name" autocomplete="name" style="min-height: 48px; padding: 0 14px; background: rgba(7,23,26,0.6); border: 1px solid rgba(215,243,233,0.4); color: #FFFFFF; border-radius: 2px; font-size: 16px"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: #A9D6CB">E-Mail
+<input type="email" name="email" autocomplete="email" style="min-height: 48px; padding: 0 14px; background: rgba(7,23,26,0.6); border: 1px solid rgba(215,243,233,0.4); color: #FFFFFF; border-radius: 2px; font-size: 16px"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: #A9D6CB">Ich plane für
+<select name="rolle" style="min-height: 48px; padding: 0 14px; background: #0B2A2E; border: 1px solid rgba(215,243,233,0.4); color: #FFFFFF; border-radius: 2px; font-size: 16px">
+<option>Pflege oder Klinik</option>
+<option>Architektur- oder Planungsbüro</option>
+<option>Hotel, Wellness, Wohnungsbestand</option>
+<option>Gewerbe, Stadt, Kommune</option>
+<option>Malerfachbetrieb</option>
+</select></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: #A9D6CB">Fläche und Ort, falls schon bekannt
+<textarea name="projekt" rows="3" style="padding: 12px 14px; background: rgba(7,23,26,0.6); border: 1px solid rgba(215,243,233,0.4); color: #FFFFFF; border-radius: 2px; font-size: 16px; resize: vertical"></textarea></label>
+<button type="submit" style="min-height: 52px; padding: 0 26px; background: #E6CF6A; color: #07171A; border: 0; border-radius: 2px; font: inherit; font-weight: 500; font-size: 16px; cursor: pointer">Musterfächer anfordern</button>
+</form>
+</div>
+
+<footer style="position: relative; border-top: 1px solid rgba(215,243,233,0.2)">
+<div style="padding: 28px clamp(20px, 5vw, 80px); max-width: 1440px; margin: 0 auto; box-sizing: border-box; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 40px; font-size: 14px; color: #A9D6CB">
+<span>CoverCraft · Surface Design Engineering · Technologie &amp; Handwerk</span>
+<span style="display: flex; flex-wrap: wrap; gap: 8px 28px"><a href="#top" style="padding: 12px 0">Impressum</a><a href="#top" style="padding: 12px 0">Datenschutz</a><a href="#top" style="padding: 12px 0">AGB</a></span>
+</div>
+</footer>
+</section>
+
+</div>
+</body>
+</html>

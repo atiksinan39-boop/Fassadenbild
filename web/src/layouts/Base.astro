@@ -1,0 +1,40 @@
+---
+import '../styles/global.css';
+import 'lenis/dist/lenis.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'CoverCraft – Surface Design Engineering',
+  description = 'CoverCraft bringt Bildkunst dauerhaft auf Fassade, Innenwand und Nassraum. Gedruckt in einer Bahn, verklebt mit einem patentierten Verfahren. Ohne Bohren, ohne Abriss.',
+} = Astro.props;
+---
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#07171A" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/GeistMono-Variable.woff2" as="font" type="font/woff2" crossorigin />
+  <script is:inline>
+    // Bewegung nur ohne prefers-reduced-motion. Sicherheitsnetz: nach 3 s alles sichtbar.
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('m');
+      setTimeout(function () { if (!window.__ccMotion) document.documentElement.classList.remove('m'); }, 3000);
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+  <slot />
+  <script>
+    import '../scripts/main';
+  </script>
+</body>
+</html>
